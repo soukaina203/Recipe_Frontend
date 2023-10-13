@@ -1,0 +1,43 @@
+
+<div class="flex h-screen justify-center items-center ">
+  <div class="bg-white p-8 md:rounded md:shadow-lg  w-[35rem]">
+    <h1 class="text-2xl font-semibold underline bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text text-center relative top-[-8px]">
+     Recipes
+    </h1>
+      <h2 class=" font-semibold mb-4 text-center">Login </h2>
+      <form  #createUser="ngForm" (ngSubmit)="handleLogin()">
+
+
+          <div class="mb-4">
+              <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Email</label>
+              <input type="email" id="email" name="email"  #email="ngModel" ngModel [(ngModel)]="user.email"
+              class="w-full border-2 rounded py-2 px-3"  required>
+              <span class="p-2  text-red-500 " *ngIf="email.errors?.['required']&&email.touched">
+                This field is required
+              </span>
+              <span class="p-2  text-red-500 " *ngIf="email.errors?.['email']&&email.touched">
+                This field should be an email
+              </span>
+            </div>
+            <div class="mb-4">
+              <label for="password" class="block text-gray-600 text-sm font-medium mb-2" >Password</label>
+              <input type="password" id="password" autocomplete  name="password" #password="ngModel" ngModel [(ngModel)]="user.password" class="w-full border-2 rounded py-2 px-3" minlength="8" required>
+              <span class="p-2  text-red-500 " *ngIf="password.errors?.['required']&&password.touched">
+                This field is required
+              </span>
+              <span class="p-2  text-red-500 " *ngIf="password.errors?.['minlength']&&password.touched">
+                The Password shouldn't be less than 8 characters
+              </span>
+            </div>
+
+            <span class="p-2  text-red-500 " >
+              {{error}}
+            </span>
+
+          <div class="text-center">
+              <button type="submit" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600" [disabled]="createUser.invalid">Login</button>
+          </div>
+      </form>
+  </div>
+</div>
+
