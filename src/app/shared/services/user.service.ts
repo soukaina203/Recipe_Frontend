@@ -25,7 +25,7 @@ export class UserService {
     }
 
 
-  getItem(id:number): Observable<User> {
+  getItem(id:string): Observable<User> {
     return this.http.get<User>(`${this.apiUser}/${id}`).pipe(
       catchError((error) => throwError(()=>{'An error occurred while getting an item from the Api'}))
     );

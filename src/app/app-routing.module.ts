@@ -5,13 +5,13 @@ import { LoginComponent } from './modules/auth/login/login.component';
 import { ListComponent } from './modules/admin/users/list/list.component';
 
 const routes: Routes = [
-  {path:'singUp',component:SignupComponent},
+  {path:'singUp',loadComponent:()=>import('./modules/auth/signup/signup.component').then()},
   {path:'login',component:LoginComponent},
 {
   path:'admin',
   children:[
-    {path:'',pathMatch:'full',redirectTo:'blocTemplate'},
-    {path:'user',loadChildren:()=> import('./modules/admin/users/user.routes').then()}
+    {path:'',pathMatch:'full',redirectTo:'user/list'},
+    {path:'user',loadChildren:()=> import('./modules/admin/users/user.routes')}
   ]
 }
 ];

@@ -1,0 +1,23 @@
+<div class="w-[100%] h-[100vh] flex flex-row gap-6 ">
+
+
+  <div class=" relative top-4 ml-3 h-[5rem] lg:h-[20rem]  lg:left-[12rem] lg:top-[10rem]">
+    <h1 class="text-3xl mb-2  font-semibold lg:text-5xl md:mb-3">Healthy Food, <br> Good Life</h1>
+    <p class="text-[20px] mb-2 relative md:mb-3 font-semibold  w-[12rem] ">Get Started Your Learning journy <br class="hidden lg:block"> with us on Healthy Nutrition
+      <br class="hidden lg:block"> and Cooking
+      Secrets</p>
+    <button class="bg-black px-6 py-2 text-white font-semibold ">Get Started</button>
+  </div>
+
+
+
+  <div class="hidden md:absolute  md:grid md:grid-cols-2 absolute    right-[6.5rem] top-[7.2rem] lg:h-[22rem] rotate-45
+  ">
+  <!-- animate-rotate -->
+  <div *ngFor="let i of imgs" class="w-9 h-9 lg:w-48 lg:h-48 border-r-0 rounded-full overflow-hidden">
+      <img [src]="'assets/images/' + i + '.jpg'" alt="">
+    </div>
+  </div>
+
+
+</div>
