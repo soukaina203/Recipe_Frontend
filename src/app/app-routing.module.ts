@@ -7,8 +7,13 @@ import { ListComponent } from './modules/admin/users/list/list.component';
 const routes: Routes = [
   {path:'singUp',component:SignupComponent},
   {path:'login',component:LoginComponent},
-  {path:'users',component:ListComponent},
-
+{
+  path:'admin',
+  children:[
+    {path:'',pathMatch:'full',redirectTo:'blocTemplate'},
+    {path:'user',loadChildren:()=> import('./modules/admin/users/user.routes').then()}
+  ]
+}
 ];
 
 @NgModule({

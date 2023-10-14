@@ -3,8 +3,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  templateUrl: 'list.component.html',
 })
 export class ListComponent implements OnInit {
 users:object[];
@@ -13,9 +12,9 @@ users:object[];
   ) { }
 
   ngOnInit(): void {
-    this.userService.getAll().subscribe((res)=>{
-      this.users=res
-    })
+    // this.userService.getAll().subscribe((res)=>{
+    //   this.users=res
+    // })
   }
 
 }
