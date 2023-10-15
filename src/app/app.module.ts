@@ -53,7 +53,7 @@ import { DashbordComponent } from './modules/admin/dashbord/dashbord.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    HeaderComponent
+    HeaderComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
