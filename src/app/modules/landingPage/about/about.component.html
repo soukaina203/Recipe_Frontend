@@ -1,7 +1,71 @@
-<div class="w-[100%] h-[100vh] flex flex-row gap-6 bg-slate-500">
-<div>
-  <img src="" alt="">
-  <h2></h2>
-  <p></p>
-</div>
+<div class="w-[100%] h-[35rem] bg-slate-400 flex flex-col gap-3 md:gap-7
+md:h-[80rem] mt-10  md:items-center
+lg:h-[60rem]
+">
+  <h1 class="text-center text-3xl font-semibold mb-8">About Us </h1>
+
+
+
+
+
+
+
+
+
+
+  <div class="text-center w-[18rem] md:w-[30rem] lg:w-[40rem] flex flex-row justify-center">
+    <img [src]="'assets/images/'+imgs[0].img+'.jpg'" alt=""
+      class="w-[8rem] h-[8rem] md:w-[12rem] md:h-[12rem] lg:w-[15rem] lg:h-[15rem] rounded-full overflow-hidden ml-auto mr-auto ">
+
+    <div class=" w-[8rem]  md:w-[14rem] lg:w-[18rem]  flex flex-col items-center justify-center">
+      <h2 class=" font-semibold text-[20px] lg:text-2xl">{{imgs[0].title}}</h2>
+      <p class="w-[17rem]  hidden md:block">Lorem ipsum dolor sit amet  <br> adipisicing elit. Natus nesciunt
+      </p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="text-center w-[18rem] md:w-[30rem] lg:w-[40rem] flex flex-row justify-center">
+    <div class=" w-[8rem]  md:w-[14rem] lg:w-[18rem]  flex flex-col items-center justify-center">
+      <h2 class=" font-semibold text-[20px] lg:text-2xl">{{imgs[1].title}}</h2>
+      <p class="w-[17rem]  hidden md:block">Lorem ipsum dolor sit amet  <br> adipisicing elit. Natus nesciunt
+      </p>
+    </div>
+    <img [src]="'assets/images/'+imgs[1].img+'.jpg'" alt=""
+      class="w-[8rem] h-[8rem] md:w-[12rem] md:h-[12rem] lg:w-[16rem] lg:h-[16rem] rounded-full overflow-hidden ml-auto mr-auto ">
+
+
+  </div>
+
+ <div class="text-center w-[18rem] md:w-[30rem] lg:w-[40rem] flex flex-row justify-center">
+    <img [src]="'assets/images/'+imgs[2].img+'.jpg'" alt=""
+      class="w-[8rem] h-[8rem] md:w-[12rem] md:h-[12rem] lg:w-[17rem] lg:h-[17rem] rounded-full overflow-hidden ml-auto mr-auto ">
+
+    <div class=" w-[8rem]  md:w-[14rem] lg:w-[18rem]  flex flex-col items-center justify-center">
+      <h2 class=" font-semibold text-[20px] lg:text-2xl">{{imgs[2].title}}</h2>
+      <p class="w-[17rem]  hidden md:block">Lorem ipsum dolor sit amet  <br> adipisicing elit. Natus nesciunt
+      </p>
+    </div>
+
+  </div>
 </div>

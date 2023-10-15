@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./behind.component.css']
 })
 export class BehindComponent {
-
+equipe=[
+  {title:'Executive Chef'},
+  {title:'Pastry Chef'},
+  {title:'Sous Chef'},
+]
 }

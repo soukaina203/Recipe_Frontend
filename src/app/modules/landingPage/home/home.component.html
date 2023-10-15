@@ -1,23 +1,15 @@
-<div class="w-[100%] h-[100vh] flex flex-row gap-6 ">
+<div class="w-[100%] h-[100vh] md:h-[25rem]  flex flex-col md:flex-row relative z-10 mt-[4rem] md:justify-center  lg:gap-[5rem]">
+
+  <div class="w-[18rem] h-[20rem]  md:[25rem] flex flex-col justify-center items-center md:items-start  lg:relative lg:top-7 lg:w-[24rem] ">
+    <h1 class="text-3xl mb-2 font-semibold md:mb-3 lg:text-5xl text-center md:text-left">Healthy Food, <br > Good Life</h1>
+    <p class="text-[20px] mb-2 font-semibold md:mb-3 md:w-[13rem] lg:w-[20rem] text-center md:text-left ">Get Started Your Learning journey <br class="hidden lg:block"> with us on Healthy Nutrition <br class="hidden lg:block"> and Cooking Secrets</p>
+    <button class="bg-black px-6 py-2 text-white font-semibold lg:flex lg:justify-start ">Get Started</button>
+</div>
 
 
-  <div class=" relative top-4 ml-3 h-[5rem] lg:h-[20rem]  lg:left-[12rem] lg:top-[10rem]">
-    <h1 class="text-3xl mb-2  font-semibold lg:text-5xl md:mb-3">Healthy Food, <br> Good Life</h1>
-    <p class="text-[20px] mb-2 relative md:mb-3 font-semibold  w-[12rem] ">Get Started Your Learning journy <br class="hidden lg:block"> with us on Healthy Nutrition
-      <br class="hidden lg:block"> and Cooking
-      Secrets</p>
-    <button class="bg-black px-6 py-2 text-white font-semibold ">Get Started</button>
-  </div>
-
-
-
-  <div class="hidden md:absolute  md:grid md:grid-cols-2 absolute    right-[6.5rem] top-[7.2rem] lg:h-[22rem] rotate-45
-  ">
-  <!-- animate-rotate -->
-  <div *ngFor="let i of imgs" class="w-9 h-9 lg:w-48 lg:h-48 border-r-0 rounded-full overflow-hidden">
+  <div class="w-[18rem] h-[18rem] hidden md:grid md:grid-cols-2 md:place-items-center md:relative md:top-[2rem]    md:animate-rotate lg:w-[22rem] lg:h-[22rem] lg:top-[2rem] ">
+    <div *ngFor="let i of imgs" class="w-[8rem] h-[8rem]  rounded-full overflow-hidden  md:w-36 md:h-36 lg:w-44 lg:h-44 ">
       <img [src]="'assets/images/' + i + '.jpg'" alt="">
     </div>
   </div>
-
-
 </div>
