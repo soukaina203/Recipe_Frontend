@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class BehindComponent {
 equipe=[
-  {title:'Executive Chef'},
-  {title:'Pastry Chef'},
-  {title:'Sous Chef'},
+  {title:'Executive Chef',img:'b1'},
+  {title:'Pastry Chef',img:'b2'},
+  {title:'Sous Chef',img:'b3'},
 ]
 }

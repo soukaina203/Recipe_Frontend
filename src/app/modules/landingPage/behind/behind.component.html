@@ -1,13 +1,13 @@
-<div class="w-[100%] h-[70rem] ">
-  <h3 class=" text-[25px] text-center font-semibold mb-4">Who's Behind?</h3>
+<h1 class="text-2xl font-semibold text-center mb-7 " id="Behind">Who's Behind?</h1>
+<div class="w-[100%] h-[71rem] flex flex-col items-center gap-4
+ md:flex-row md:flex-wrap md:justify-center md:content-start  md:h-[49rem]
+ lg:gap-[2rem] lg:h-[24rem]
+ lg:mb-[3rem]
 
-  <div class="flex flex-col items-center md:flex-row  md:w-[30rem] md:place-content-center md:mr-auto md:ml-auto
-  lg:w-[40rem]
  ">
-  <img src="assets/images/behind.jpg" alt="" class="h-[11.25rem] w-[14.25rem] mr-auto ml-auto mb-4 lg:w-[18rem] lg:h-[14rem]">
-  <p class="w-[14rem]  line-clamp-5 font-semibold">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus voluptate
-     dolore ex nostrum quae possimus minus provident illo maxime eveniet
-     nam autem ipsum rem minima, id ullam animi? Aut, eos.</p>
-
-</div>
+  <div *ngFor="let i of equipe" class=" w-[15rem]">
+   <img [src]="'assets/images/'+i.img+'.jpg'" alt="" class="w-[15rem] h-[15rem] rounded-lg mr-auto ml-auto">
+   <h1 class="text-xl font-semibold ml-2 mt-2">{{i.title}}</h1>
+   <p class="line-clamp-3 ml-2 font-normal"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem eligendi esse qui, repudiandae fugit, totam non impedit et sequi, officiis perferendis odio quam? Eligendi est repudiandae libero dignissimos repellendus.</p>
+  </div>
 </div>

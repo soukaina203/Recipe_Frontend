@@ -24,6 +24,10 @@ module.exports = {
 
       }
     },
+    // backgroundColor:{
+    //   'footer-white':'#F0EFED',
+    //   'black':''
+    // },
     animation:{
       'rotate': 'rotate 10s linear infinite', // Rotate animation for 2 seconds infinitely
 

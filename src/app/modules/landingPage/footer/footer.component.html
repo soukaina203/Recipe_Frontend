@@ -1,1 +1,14 @@
-<p>footer works!</p>
+<div class="w-[102%] h-[40rem] md:h-[35rem] lg:h-[20rem] lg:flex lg:justify-center bg-neutral-300">
+
+  <div class=" lg:w-[70%]   grid grid-cols-1 ml-3 md:ml-6
+  md:justify-center  md:place-items-center md:grid-cols-3 md:gap-3 md:mr-auto md:ml-auto ">
+  <div *ngFor="let i of infos" class="ml-3 mt-4  w-[12rem]  lg:w-[15rem] ">
+    <h1 class="text-xl font-semibold  bg- lg:text-2xl">{{i.title}}</h1>
+    <p *ngFor="let link of i.link" class=" lg:text-[20px]">
+      {{link}}
+    </p>
+  </div>
+<h1 class="bg-black"></h1>
+</div>
+
+</div>

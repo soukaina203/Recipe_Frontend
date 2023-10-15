@@ -1,1 +1,27 @@
-<p>ranking works!</p>
+<h1 class="text-2xl font-semibold text-center mb-1 md:mb-7 " id="Ranking">Best Ranking <br class="block md:hidden"> Recipes</h1>
+
+<div class="w-[100%]  h-[135rem] grid grid-cols-1 place-items-center place-content-center md:grid-cols-2 lg:grid-cols-3  gap-4
+ md:flex-row md:flex-wrap md:justify-center md:content-start md:h-[70rem]
+ lg:gap-[2rem] lg:h-[44rem] lg:w-[65%] lg:ml-auto lg:mr-auto
+ lg:mb-[3rem]
+ ">
+  <div *ngFor="let i of recipes" class=" w-[15rem] ">
+    <img [src]="'assets/images/'+i.img+'.jpg'" alt="" class="w-[15rem] h-[15rem] rounded-lg mr-auto ml-auto">
+
+    <div class="flex flex-row text-xl font-semibold w-[14rem] ">
+
+      <h1 class=" ml-2 mt-2  ">{{i.title}}   </h1>
+      <p class="  ml-2 mt-2">{{i.stars}}</p>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-[1.7rem] h-[1.7rem] mt-2">
+        <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536
+        1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637
+         3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401" clip-rule="evenodd" style="fill: rgba(237, 147, 12, 0.86);" />
+      </svg>
+
+
+  </div>
+
+
+    <p class="line-clamp-3 ml-2 font-normal"> {{i.type}}</p>
+  </div>
+</div>
