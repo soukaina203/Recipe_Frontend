@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { ListComponent } from './list/list.component';
-import { DetailComponent } from './detail/detail.component';
 import { UpdateComponent } from './update/update.component';
 import { CreateComponent } from './create/create.component';
 export default [
@@ -11,7 +10,6 @@ export default [
     component:ListComponent,
     title:'users list'
   },
-
   {
     path:':id',
     component:UpdateComponent,

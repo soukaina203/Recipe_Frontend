@@ -17,7 +17,6 @@ export class SignupComponent implements OnInit {
   handleSignup=()=>{
     this.signupData.signUp(this.user).subscribe((res)=>{
       if(res==="existed"){
-
         this.error="Email already existed"
       }else if(res==="success"){
         this.router.navigate(['/']);

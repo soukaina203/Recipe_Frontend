@@ -1,26 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
-  standalone: true,
-  imports:[
-    CommonModule,
-    RouterModule
-  ]
+  styleUrls: ['./update.component.css']
 })
-export class UpdateComponent implements OnInit {
-readonly route = inject(ActivatedRoute);
-
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
-
-  }
+export class UpdateComponent {
 
 }

@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
  imgs:any[]=[
- {img:'about',title:'Unlock the Secrets of Nutritional wisdom'},
- {img:'about2',title:'Transform your plates into Masterpieces'},
- {img:'about3',title:'Savor the symphony of Harmonies Tastes'},
+ {img:'about',title:'Unlock The Secrets Of Nutritional Wisdom'},
+ {img:'about2',title:'Transform Your Plates Into Masterpieces'},
+ {img:'about3',title:'Savor The Symphony Of Harmonies Tastes'},
  ]
 }
