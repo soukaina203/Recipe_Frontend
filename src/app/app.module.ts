@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -23,7 +24,6 @@ import { AdminComponent } from './modules/admin/admin.component';
 import { ListComponent } from './modules/admin/recipes/list/list.component';
 import { UpdateRecipeComponent } from './modules/admin/recipes/update-recipe/update-recipe.component';
 import { DashbordComponent } from './modules/admin/dashbord/dashbord.component';
-
 
 @NgModule({
   declarations: [
@@ -54,6 +54,7 @@ import { DashbordComponent } from './modules/admin/dashbord/dashbord.component';
     HttpClientModule,
     FormsModule,
     HeaderComponent,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

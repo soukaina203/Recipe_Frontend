@@ -1,3 +1,16 @@
-<div class="">
-<h1>Hello </h1>
+<div class="border-2 rounded-lg b w-[61rem] h-full absolute right-2 top-2
+
+flex flex-col items-center gap-2" >
+  <div class="w-[61rem] text-center text-2xl ">
+    <h1 class="p-4">Hello {{user.name}}</h1>
+  </div>
+  <div class="w-[50rem] grid grid-cols-3 gap-2 place-items-center ">
+    <div *ngFor="let feature of features" class="w-[14rem] h-[10rem] rounded-lg
+      flex flex-row justify-center items-center border-2 gap-3">
+      <h1 class="text-2xl font-semibold ">{{feature}}</h1>
+<mat-icon>
+  settings
+</mat-icon>
+    </div>
+  </div>
 </div>
