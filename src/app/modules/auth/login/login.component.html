@@ -2,23 +2,24 @@
 
 <a href="/">
 
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-6 text-indigo-500 absolute left-3 top-3 hidden md:block">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+  class="w-8 h-6 text-indigo absolute left-3 top-3 hidden md:block">
     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
   </svg>
 
 </a>
 <div class="flex h-screen justify-center items-center ">
   <div class="bg-white p-8 md:rounded md:shadow-lg  w-[35rem] md:mb-[13%] lg:mb-0">
-    <h1 class="text-2xl font-semibold underline bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text text-center relative top-[-8px]">
+    <h1 class="text-2xl font-lg  bg-gradient-to-r from-indigo via-purple to-pink text-transparent bg-clip-text text-center relative top-[-8px]">
      Recipes
     </h1>
-      <h2 class=" font-semibold mb-4 text-center">Login </h2>
-      <form  #createUser="ngForm" (ngSubmit)="handleLogin()">
+      <h2 class=" font-lg mb-4 text-center">Login </h2>
+      <form  #createUser="ngForm" (ngSubmit)="handleLogin(createUser)">
 
 
           <div class="mb-4">
               <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Email</label>
-              <input type="email" id="email" name="email"  #email="ngModel" ngModel [(ngModel)]="user.email"
+              <input type="email" id="email" name="email"  #email="ngModel" ngModel
               class="w-full border-2 rounded py-2 px-3"  required>
               <span class="p-2  text-red-500 " *ngIf="email.errors?.['required']&&email.touched">
                 This field is required
@@ -29,7 +30,8 @@
             </div>
             <div class="mb-4">
               <label for="password" class="block text-gray-600 text-sm font-medium mb-2" >Password</label>
-              <input type="password" id="password" autocomplete  name="password" #password="ngModel" ngModel [(ngModel)]="user.password" class="w-full border-2 rounded py-2 px-3" minlength="8" required>
+              <input type="password" id="password" autocomplete  name="password" #password="ngModel" ngModel
+              class="w-full border-2 rounded py-2 px-3" minlength="8" required>
               <span class="p-2  text-red-500 " *ngIf="password.errors?.['required']&&password.touched">
                 This field is required
               </span>
@@ -43,7 +45,7 @@
             </span>
 
           <div class="text-center">
-              <button type="submit" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600" [disabled]="createUser.invalid">Login</button>
+              <button type="submit" class="bg-blue text-white rounded py-2 px-4 hover:bg-blue-600" [disabled]="createUser.invalid">Login</button>
           </div>
       </form>
   </div>

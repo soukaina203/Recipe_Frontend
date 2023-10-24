@@ -1,24 +1,45 @@
-<div class="w-[14rem]  text-center h-full bg-zinc-300 absolute top-0 left-0">
-  <div class="mt-2 ">
-    <img src="assets/images/profile.jpg" alt="" class="w-[4rem] h-[4rem] rounded-full ml-auto mr-auto overflow-hidden">
-    <h1 class="p-2  font-semibold ">
+<div class="w-[4rem] text-center h-full md:h-[40rem]  lg:h-full bg-zinc-300 absolute top-2 left-2 bg-whiteBg rounded-lg
+
+lg:w-[14rem]
+">
+  <div class="mt-2  ">
+    <ng-container *ngIf="!user.photo">
+      <img src="assets/images/profile.jpg" alt="" class="w-[2rem] h-[2rem] lg:w-[4rem] lg:h-[4rem] rounded-full ml-auto mr-auto overflow-hidden">
+    </ng-container>
+    <ng-container *ngIf="!!user.photo">
+      <img [src]="'http://127.0.0.1:8000/images/'+user.photo" alt="" class="w-[2rem] h-[2rem] lg:w-[4rem] lg:h-[4rem] rounded-full ml-auto mr-auto overflow-hidden">
+
+
+    </ng-container>
+    <h1 class="p-2  font-semibold hidden lg:block">
       {{user.name}}
 
     </h1>
-    <p class="text-[15px] mt-[-0.5rem]  whitespace-normal">
+    <p class="text-[15px] mt-[-0.5rem] hidden lg:block ">
       {{user.email}}
     </p>
 
   </div>
-  <div class="flex flex-col mt-5">
+  <div class="flex flex-col mt-5 h-[10rem] ">
 
-    <div *ngFor="let item of links" class=" flex justify-center items-center h-[3rem] m-2 mt-0
-  bg-gray-400 rounded-lg">
-      <h1 class="font-semibold">
-       <a href="admin/user">{{item}}</a>
-      </h1>
-    </div>
+    <div *ngFor="let item of links" class=" flex justify-start    gap-0 items-center
 
+    lg:h-[3rem]
+    bg-gray-400 rounded-lg">
+    <mat-icon class="text-2xl lg:mt-[0.9rem]" style="width: 4rem; height: 3rem; ">{{item.icon}}</mat-icon>
+    <h1 class="font-semibold hidden lg:block">
+      <a href="admin/user">{{item.name}}</a>
+    </h1>
   </div>
-  <button class=" h-[3rem] m-2 mt-0 w-[13rem] font-semibold absolute left-[0.7px] bottom-0 bg-zinc-200 rounded-lg"> Log Out</button>
+
 </div>
+
+<button class="hidden lg:block h-[3rem] m-2 mt-0 w-[13rem] font-semibold absolute
+left-[0.7px] bottom-0 bg-zinc-200 rounded-lg" > Log Out</button>
+<div class="flex justify-center items-center md:w-[4rem] md:h-[4rem] absolute bottom-[4.5rem] md:bottom-[7rem] lg:hidden">
+  <mat-icon class="text-2xl " style="width: 4rem; height: 3rem; ">logout</mat-icon>
+
+</div>
+
+</div>
+

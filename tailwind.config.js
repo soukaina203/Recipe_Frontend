@@ -1,3 +1,4 @@
+require('@tailwindcss/forms'),
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -13,7 +14,26 @@ module.exports = {
         'lg': '1024px', // Large screens
         'xl': '1280px', // Extra-large screens
       },
-    },keyframes:{
+    },
+    colors:{
+      black: '#000000',
+      white: '#FFFFFF',
+      whiteBg: '#EEEFF1',
+red:'#FF0000',
+      pink: '#E91E63',
+      purple: '#9C27B0',
+      indigo: '#3F51B5',
+      gray: '#9E9E9E',
+      grayWhite: '#B0B0B0',
+      blue:'#3B82F6',
+      transparent:'#00000000'
+
+  }, fontWeight: {
+    base: '16px',
+    sm: '14px',
+    lg: '18px',
+  },
+    keyframes:{
       'rotate': {
         '0%': { transform: 'rotate(0deg)' },
         '100%': { transform: 'rotate(360deg)' },
@@ -24,10 +44,7 @@ module.exports = {
 
       }
     },
-    // backgroundColor:{
-    //   'footer-white':'#F0EFED',
-    //   'black':''
-    // },
+
     animation:{
       'rotate': 'rotate 10s linear infinite', // Rotate animation for 2 seconds infinitely
 
@@ -35,6 +52,8 @@ module.exports = {
 
     }
   },
-  plugins: [],
+  plugins: [
+
+  ],
 }
 

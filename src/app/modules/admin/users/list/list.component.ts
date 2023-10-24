@@ -1,30 +1,45 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterLink, RouterModule } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { User } from 'src/app/shared/models/user';
 import { UserService } from 'src/app/shared/services/user.service';
 
-import { RouterLink } from '@angular/router';
-
 @Component({
-  selector: 'app-list',
+  selector: 'table-basic-example',
   templateUrl: 'list.component.html',
-  standalone: true,
+  styleUrls:['list.component.css'],
+  standalone:true,
   imports:[
-    CommonModule,
-    RouterModule
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    CommonModule
+
   ]
-
 })
-export class ListComponent implements OnInit {
-users:any[] = [];
-  constructor(
-  private  userService:UserService
-  ) { }
-
+export class ListComponent {
+  displayedColumns: string[] = [ 'id','name', 'email','actions'];
+  deleteMessage=""
+  dataSource :User[] ;
+  userService=inject(UserService)
   ngOnInit(): void {
     this.userService.getAll().subscribe((res)=>{
-      this.users=res
+this.dataSource=res
     })
   }
+  deleteItem=(id:number)=>{
+    this.userService.deleteItem(id).subscribe((res)=>{
+res==="deleted"?this.deleteMessage="The User was deleted successfully":
+this.deleteMessage=""
 
+    })
+    this.userService.getAll().subscribe((e)=>{
+      this.dataSource=e
+    })
+  }
 }

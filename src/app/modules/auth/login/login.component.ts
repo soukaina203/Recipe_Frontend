@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, NgModule, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/models/user';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -12,13 +12,12 @@ export class LoginComponent implements OnInit {
   error: string = '';
   loginData=inject(AuthService)
   router=inject(Router)
-  constructor() {
-    this.user=new User;
 
-  }
-  handleLogin = () => {
+  handleLogin = (form:any) => {
+    this.user={...this.user,email:form.controls.email.value,
+      password:form.controls.password.value}
+    console.log(form.controls.email.value)
     this.loginData.login(this.user).subscribe((res) => {
-      console.log(res.user);
       if (res.status === 'error') {
         this.error = 'The Email or the password is incorrect';
       } else {

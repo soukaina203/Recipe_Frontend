@@ -1,9 +1,9 @@
 export class User{
-id:number;
+id:String | null ;
 name:string;
 email:string;
 password:string;
-photo:string;
+photo:FormData ;
 country:string;
 city:string
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './modules/auth/signup/signup.component';
 import { LoginComponent } from './modules/auth/login/login.component';
-import { ListComponent } from './modules/admin/users/list/list.component';
+// import { ListComponent } from './modules/admin/users/list/list.component';
 import { MainComponent } from './modules/landingPage/main/main.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { DashbordComponent } from './modules/admin/dashbord/dashbord.component';

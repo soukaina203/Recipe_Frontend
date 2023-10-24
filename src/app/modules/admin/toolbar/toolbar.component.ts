@@ -9,14 +9,20 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class ToolbarComponent {
   user:User
-  links:string[]=['Profile','Users','Recipes','Categories','plans']
   userData=inject(AuthService)
+  links:any[]=[
+    {name:'Profile',icon:'person'},
+    {name:'Users',icon:'group'},
+    {name:'Recipes',icon:'restaurant'},
+    {name:'Categories',icon:'category'},
+    {name:'Plans',icon:'list_alt'},
+
+]
 
   ngOnInit(): void {
     const userDataString = localStorage.getItem('user');
     if (userDataString) {
       this.user = JSON.parse(userDataString);
-      console.log(this.user);
     }}
 
 }

@@ -32,8 +32,8 @@ export class UserService {
   }
 
 
-  updateItem(user:User,id:number): Observable<any> {
-    return this.http.post<User>(`${this.apiUser}/${id}`,user).pipe(
+  updateItem(id:string | null,user:User): Observable<any> {
+    return this.http.patch<User>(`${this.apiUser}/${id}`,user).pipe(
       catchError((error) => throwError(()=>{'An error occurred while updating an item from the Api'}))
     );
   }
@@ -45,6 +45,11 @@ export class UserService {
     );
   }
 
+  uploadImg(img:FormData,id:string| null): Observable<any> {
+    return this.http.post<User>(`http://127.0.0.1:8000/api/Users/img/${id}`,img).pipe(
+      catchError((error) => throwError(()=>{'An error occurred while deleting an item from the Api'}))
+    );
+  }
 
 
 
