@@ -19,7 +19,7 @@ const routes: Routes = [
     {path:'',pathMatch:'full',redirectTo:''},
     {path:'dashbord',component:DashbordComponent},
 
-    {path:'user',loadChildren:()=> import('./modules/admin/users/user.routes')}
+    {path:'users',loadChildren:()=> import('./modules/admin/users/user.routes')}
   ]
 }
 ];

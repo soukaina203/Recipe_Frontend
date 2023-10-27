@@ -16,8 +16,9 @@ export class LoginComponent implements OnInit {
   handleLogin = (form:any) => {
     this.user={...this.user,email:form.controls.email.value,
       password:form.controls.password.value}
-    console.log(form.controls.email.value)
+    // console.log(form.controls.email.value)
     this.loginData.login(this.user).subscribe((res) => {
+      console.log(res.status)
       if (res.status === 'error') {
         this.error = 'The Email or the password is incorrect';
       } else {
