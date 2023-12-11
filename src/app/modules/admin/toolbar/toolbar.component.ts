@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, NgZone, inject } from '@angular/core';
 import { User } from 'src/app/shared/models/user';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -9,6 +9,10 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class ToolbarComponent {
   user:User
+  ngZone =inject(NgZone)
+  isOpen:boolean=false;
+  dropdown:boolean=false;
+
   userData=inject(AuthService)
   links:any[]=[
     {name:'Profile',icon:'person'},
@@ -18,6 +22,17 @@ export class ToolbarComponent {
     {name:'Plans',icon:'list_alt'},
 
 ]
+Menu=(state:string)=>{
+
+
+  this.ngZone.run(() => {
+    this.isOpen = state === 'open';
+    console.log(state);
+
+})}
+Dropdown=()=>{
+this.dropdown?this.dropdown=false:this.dropdown=true
+}
 
   ngOnInit(): void {
     const userDataString = localStorage.getItem('user');

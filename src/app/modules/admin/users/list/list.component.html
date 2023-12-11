@@ -1,20 +1,30 @@
-<div class="ml-auto mr-auto">
+<div class="flex gap-3">
+<div class="w-[17rem] h-screen bg-gray ">
+<h1>
+  City
+</h1>
+<p *ngFor="let i of distinctCities">
+  {{i}}
+</p>
+
+<h1>
+  Country
+</h1>
+<p *ngFor="let i of distinctCountries">
+  {{i}}
+</p>
+</div>
 
 <div
-  class="absolute right-2  w-[12rem] md:w-[85%] md:ml-[15%] lg:w-[80%] lg:ml-auto lg:mr-auto bg-purple flex justify-center items-center lg:mt-[5rem] text-xl mt-3 ">
+  class="w-[17rem] h-[content] mt-4  md:w-[75%] md:ml-[15%]  lg:w-[70%] lg:ml-[25%]   lg:mr-auto bg-purple flex justify-center  lg:mt-[5rem] text-xl  ">
 
-  <span class="p-4 bg-red" *ngIf="deleteMessage"> {{deleteMessage}}</span>
-  <table mat-table [dataSource]="dataSource" class=" bg-red">
+  <table mat-table [dataSource]="dataSource" class="ml-auto mr-auto ">
 
 
-    <ng-container matColumnDef="id" class="hidden md:block">
-      <th mat-header-cell *matHeaderCellDef > Id </th>
-      <td mat-cell *matCellDef="let element" >{{ element.id }}</td>
-    </ng-container>
 
-    <ng-container matColumnDef="photo" class="hidden lg:block">
+    <ng-container matColumnDef="photo" class="hidden text-center md:block">
       <th mat-header-cell *matHeaderCellDef class="text-center"> Photo </th>
-      <td mat-cell *matCellDef="let element" class="text-center" >
+      <td mat-cell *matCellDef="let element" >
         <ng-container *ngIf="!element.photo">
           <img src="assets/images/profile.jpg" alt=""
           class="w-[2rem] h-[2rem]  rounded-full  ml-auto mr-auto overflow-hidden">
@@ -29,14 +39,27 @@
 
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <th mat-header-cell *matHeaderCellDef class=""> Name </th>
+      <td mat-cell *matCellDef="let element" class=""> {{element.name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="email" class="hidden md:block">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      <th mat-header-cell *matHeaderCellDef > Email </th>
+      <td mat-cell *matCellDef="let element" > {{element.email}} </td>
     </ng-container>
+
+
+    <ng-container matColumnDef="city"  class="hidden lg:block" >
+      <th mat-header-cell *matHeaderCellDef  > City </th>
+      <td mat-cell *matCellDef="let element"  > {{element.city}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="country"  class="hidden lg:block">
+      <th mat-header-cell *matHeaderCellDef  > Country </th>
+      <td mat-cell *matCellDef="let element"  > {{element.country}} </td>
+    </ng-container>
+
 
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef class="text-center"> Actions </th>

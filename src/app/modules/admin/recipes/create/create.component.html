@@ -1,1 +1,65 @@
-<p>create works!</p>
+<div class="flex items-center justify-center w-full h-full bg-gray">
+
+  <form [formGroup]="RecipeForm" class="w-[60%] ml-auto mr-auto bg-indigo">
+    <mat-horizontal-stepper [linear]="true">
+      <mat-step>
+        <ng-container *ngIf="!isSended">
+          <div class=" w-full h-[13rem] rounded-lg ml-auto mr-auto">
+
+            <img src="assets/images/home2.jpg" alt="" class=" w-full h-[13rem] rounded-lg ml-auto mr-auto
+            overflow-hidden object-cover" (click)="uploadSection()">
+          </div>
+
+
+        </ng-container>
+        <ng-container *ngIf="isSended">
+
+
+          <img [src]="'http://127.0.0.1:8000/images/'+image" alt="" class=" w-full h-[13rem] rounded-lg ml-auto mr-auto
+                  overflow-hidden object-cover" (click)="uploadSection()">
+
+        </ng-container>
+ <ng-container *ngIf="isUpload">
+<label for=""> Upload an image</label>
+   <input type="file" class="form-control " [accept]="'.pdf,.doc,.docx,.jpg,.png,.jpge'" type="file"
+    id="inputPhoto"  formControlName="photo" (change)="onFileSelected($event)" />
+  </ng-container>
+
+
+        <mat-form-field appearance="fill" class="col-md-12">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title">
+          <mat-error *ngIf="RecipeForm.get('title')?.errors?.['minlength']">
+            The title should contain more than 3 characters.
+          </mat-error>
+          <mat-error *ngIf="RecipeForm.get('title')?.hasError('required') &&
+        RecipeForm.get('title')?.touched">
+            the title field is required
+          </mat-error>
+        </mat-form-field>
+
+
+          <mat-form-field appearance="fill" class=" col-md-12" >
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" minlength="80" maxlength="500"></textarea>
+            <mat-error *ngIf="RecipeForm.get('title')?.errors?.['minlength']">
+              The Discription should contain more than 80 characters
+            </mat-error>
+            <mat-error *ngIf="RecipeForm.get('title')?.errors?.['maxLength']">
+              The Discription should contain less than 500 characters
+            </mat-error>
+
+            <mat-error *ngIf="RecipeForm.get('title')?.hasError('required') &&
+            RecipeForm.get('title')?.touched">
+              This Field is required
+            </mat-error>
+          </mat-form-field>
+
+
+
+
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+
+</div>

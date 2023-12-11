@@ -12,14 +12,14 @@ export class AuthService {
   constructor(private http: HttpClient) { }
   signUp(user:User): Observable<any> {
     return this.http.post<User>("http://127.0.0.1:8000/api/signup",user).pipe(
-      catchError((error) => throwError(()=>{'An error occurred while sending data for signUp'}))
+      catchError((error) => throwError(()=>{console.log('An error occurred while sending data for signUp',user)}))
     );
   }
 
   login(user:User): Observable<any> {
     return this.http.post<User>("http://127.0.0.1:8000/api/login",user).pipe(
 
-      catchError((error) => throwError(()=>{'An error occurred while sending data for login'}))
+      catchError((error) => throwError(()=>{console.log('An error occurred while sending data for login')}))
     )
   }
 

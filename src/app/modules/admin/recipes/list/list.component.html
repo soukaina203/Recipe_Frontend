@@ -1,1 +1,12 @@
-<p>list works!</p>
+
+<button class="p-2 bg-blue"> <a href="admin/recipe/create"> Create A recipe </a></button>
+<div class="bg-white rounded-md shadow-md card w-[50%]">
+  <h1 class="text-xl font-bold card-header">List Of Notes</h1>
+  <div class="card-body">
+    <div class="flex flex-col gap-4" *ngFor="let i of recipes">
+      <h1 class="text-lg font-medium">{{i.title}}</h1>
+      <p>{{i.description}}</p>
+      <button class="px-4 py-2 text-white bg-red-500 rounded-md" (click)="Delete(i.id)">Delete</button>
+    </div>
+  </div>
+</div>

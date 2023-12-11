@@ -6,10 +6,10 @@
  lg:mb-[3rem]
 
  ">
-  <div *ngFor="let i of equipe" class=" w-[15rem]">
+  <div *ngFor="let i of equipe" class=" w-[15rem] h-full">
    <img [src]="'assets/images/'+i.img+'.jpg'" alt="" class="w-[15rem] h-[15rem] rounded-lg mr-auto ml-auto">
-   <h1 class="text-xl font-semibold ml-2 mt-2">{{i.title}}</h1>
-   <p class="line-clamp-3 ml-2 font-normal"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem eligendi esse qui,
+   <h1 class="mt-2 ml-2 text-xl font-semibold">{{i.title}}</h1>
+   <p class="ml-2 font-normal line-clamp-3"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem eligendi esse qui,
      repudiandae fugit, totam non impedit et sequi, officiis perferendis odio quam? Eligendi est repudiandae libero dignissimos repellendus.</p>
   </div>
 </div>

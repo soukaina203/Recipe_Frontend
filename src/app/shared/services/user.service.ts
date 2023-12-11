@@ -8,9 +8,9 @@ import { Observable, catchError, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUser = environment.apiUser;
+  private apiUser = environment.urlApi;
 
-
+// NEED TO
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<User[]> {

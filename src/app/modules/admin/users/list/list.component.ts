@@ -23,17 +23,31 @@ import { UserService } from 'src/app/shared/services/user.service';
   ]
 })
 export class ListComponent {
-  displayedColumns: string[] = ['id','photo', 'name', 'email', 'actions'];
+  displayedColumns: string[] = ['photo', 'name', 'email','city','country', 'actions'];
+  filterList: string[] = ['city', 'country'];
+
   deleteMessage = ""
   dataSource: User[];
   selectedElementId: number | null = null;
 
+  distinctCities:any[]=[]
+  distinctCountries:any[]=[]
+
   userService = inject(UserService)
+
   isOpen:boolean=false
   ngOnInit(): void {
-    this.userService.getAll().subscribe((res) => {
-      this.dataSource = res
+    this.userService.getAll().subscribe((res:any) => {
+      this.dataSource = res.users
+      this.distinctCities=res.distinctCities
+      this.distinctCountries=res.distinctCountries
       console.log(res)
+
+    })
+  }
+  filterProcess=(item:string)=>{
+    this.userService.getAll().subscribe((res:any) => {
+
     })
   }
   handleOptions=(id:number)=>{

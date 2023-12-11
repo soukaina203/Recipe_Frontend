@@ -21,7 +21,6 @@ import { ContactComponent } from './modules/landingPage/contact/contact.componen
 import { FooterComponent } from './modules/landingPage/footer/footer.component';
 import { MainComponent } from './modules/landingPage/main/main.component';
 import { ToolbarComponent } from './modules/admin/toolbar/toolbar.component';
-import { AdminComponent } from './modules/admin/admin.component';
 import { ListComponent } from './modules/admin/recipes/list/list.component';
 import { UpdateRecipeComponent } from './modules/admin/recipes/update-recipe/update-recipe.component';
 import { DashbordComponent } from './modules/admin/dashbord/dashbord.component';
@@ -37,7 +36,6 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    HeaderComponent,
     MatIconModule,
     MatTableModule,
     MatButtonModule,
@@ -46,23 +44,8 @@ import { CommonModule } from '@angular/common';
   ],
   declarations: [
     AppComponent,
-    SignupComponent,
-    LoginComponent,
-    CreateComponent,
-    BehindComponent,
-    HomeComponent,
-    AboutComponent,
-    RankingComponent,
-    ContactComponent,
-    FooterComponent,
-    MainComponent,
-    ToolbarComponent,
-    AdminComponent,
-    // ListComponent,
-    UpdateRecipeComponent,
     DashbordComponent,
-    ListComponent
-    // DetailComponent,
+
   ],
 
   providers: [],

@@ -1,45 +1,111 @@
-<div class="w-[4rem] text-center h-full md:h-[40rem]  lg:h-full bg-zinc-300 absolute top-2 left-2 bg-whiteBg rounded-lg
+<!-- Mobile -->
+<div class="w-[100%] text-center flex h-[3rem] md:hidden">
 
-lg:w-[14rem]
-">
-  <div class="mt-2  ">
+  <button type="button"
+    class="absolute p-2 rounded-md right-1 top-1 lg:hidden focus:outline-none focus:ring-2 focus:ring-inset "
+    aria-controls="mobile-menu" aria-expanded="false">
+    <ng-container *ngIf="!isOpen">
+      <svg class="block h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        aria-hidden="true" (click)="Menu('open')">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </ng-container>
+    <ng-container *ngIf="isOpen">
+      <svg class="block w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        aria-hidden="true" (click)="Menu('close')">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </ng-container>
+  </button>
+
+  <div class="absolute left-3 top-[0.5rem]">
     <ng-container *ngIf="!user.photo">
-      <img src="assets/images/profile.jpg" alt="" class="w-[2rem] h-[2rem] lg:w-[4rem] lg:h-[4rem] rounded-full ml-auto mr-auto overflow-hidden">
+      <img src="assets/images/profile.jpg" alt=""
+        class="w-[2rem] h-[2rem] lg:w-[4rem] lg:h-[4rem] rounded-full ml-auto mr-auto overflow-hidden">
     </ng-container>
     <ng-container *ngIf="!!user.photo">
-      <img [src]="'http://127.0.0.1:8000/images/'+user.photo" alt="" class="w-[2rem] h-[2rem] lg:w-[4rem] lg:h-[4rem] rounded-full ml-auto mr-auto overflow-hidden">
-
-
+      <img [src]="'http://127.0.0.1:8000/images/'+user.photo" alt=""
+        class="w-[2rem] h-[2rem] lg:w-[4rem] lg:h-[4rem] rounded-full ml-auto mr-auto overflow-hidden">
     </ng-container>
-    <h1 class="p-2  font-semibold hidden lg:block">
-      {{user.name}}
 
+    <h1 class="hidden p-2 font-semibold lg:block">
+      {{user.name}}
     </h1>
+
     <p class="text-[15px] mt-[-0.5rem] hidden lg:block ">
       {{user.email}}
     </p>
-
   </div>
-  <div class="flex flex-col mt-5 h-[10rem] ">
 
-    <div *ngFor="let item of links" class=" flex justify-start    gap-0 items-center
 
+
+  <!-- Menu -->
+  <div
+    class=" z-50 flex flex-row w-[100%] h-[3rem] gap-3  justify-center mt-[1.5rem] relative top-6  animate-showUp">
+    <ng-container *ngIf="isOpen">
+      <div *ngFor="let item of links" class=" flex justify-start gap-0 items-center
     lg:h-[3rem]
     bg-gray-400 rounded-lg">
-    <mat-icon class="text-2xl lg:mt-[0.9rem]" style="width: 4rem; height: 3rem; ">{{item.icon}}</mat-icon>
-    <h1 class="font-semibold hidden lg:block">
-      <a href="admin/user">{{item.name}}</a>
-    </h1>
+        <mat-icon class="text-2xl lg:mt-[0.9rem]" style="width: 2rem; height: 3rem; ">{{item.icon}}</mat-icon>
+        <h1 class="hidden font-semibold lg:block">
+          <a href="admin/user">{{item.name}}</a>
+        </h1>
+      </div>
+    </ng-container>
   </div>
 
+
+  <button class="hidden lg:block h-[3rem] m-2 mt-0 w-[13rem] font-semibold absolute
+left-[0.7px] bottom-0 bg-zinc-200 rounded-lg"> Log Out</button>
+  <div
+    class="flex justify-center items-center md:w-[4rem] md:h-[4rem] absolute top-2 right-8 md:bottom-[7rem] lg:hidden">
+    <mat-icon class="text-2xl " style="width: 4rem; height: 3rem; ">logout</mat-icon>
+  </div>
+
+
 </div>
 
-<button class="hidden lg:block h-[3rem] m-2 mt-0 w-[13rem] font-semibold absolute
-left-[0.7px] bottom-0 bg-zinc-200 rounded-lg" > Log Out</button>
-<div class="flex justify-center items-center md:w-[4rem] md:h-[4rem] absolute bottom-[4.5rem] md:bottom-[7rem] lg:hidden">
-  <mat-icon class="text-2xl " style="width: 4rem; height: 3rem; ">logout</mat-icon>
+
+<!-- medium and large screens  -->
+
+<div class="hidden md:block w-[4rem]  text-center h-full   lg:h-full bg-zinc-300  bg-whiteBg rounded-lg
+
+">
+
+
+
+  <div class=" md:mt-2">
+    <ng-container *ngIf="!user.photo">
+      <img src="assets/images/profile.jpg" alt=""
+        class="w-[2rem] h-[2rem] lg:w-[3rem] lg:h-[3rem] rounded-full ml-auto mr-auto overflow-hidden">
+    </ng-container>
+    <ng-container *ngIf="!!user.photo">
+      <img [src]="'http://127.0.0.1:8000/images/'+user.photo" alt=""
+        class="w-[2rem] h-[2rem] lg:w-[3rem] lg:h-[3rem] rounded-full ml-auto mr-auto overflow-hidden">
+    </ng-container>
+
+
+
+
+  </div>
+
+
+
+  <div class="flex flex-col mt-5 h-[10rem] ">
+    <div *ngFor="let item of links" class=" flex justify-start gap-0 items-center
+    lg:h-[3rem]
+    bg-gray-400 rounded-lg">
+      <mat-icon class="text-2xl lg:mt-[0.9rem]" style="width: 4rem; height: 3rem; ">{{item.icon}}</mat-icon>
+
+    </div>
+  </div>
+
+
+
+  <div
+    class="flex justify-center items-center md:w-[4rem] md:h-[4rem] absolute bottom-[4.5rem] md:bottom-[0rem] ">
+    <mat-icon class="text-2xl " style="width: 4rem; height: 3rem; ">logout</mat-icon>
+  </div>
+
 
 </div>
-
-</div>
-

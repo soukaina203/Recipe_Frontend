@@ -66,7 +66,7 @@ export class UpdateComponent {
     this.subscription = this.userService.updateItem(this.id, this.userDetail)
       .subscribe(d => {
         if (d === "great") {
-          this.router.navigate(['/admin/user'])
+          this.router.navigate(['/admin/users'])
         }
       })
   }
