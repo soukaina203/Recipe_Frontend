@@ -42,15 +42,19 @@ export class UpdateComponent {
     this.isUpload ? this.isUpload = false : this.isUpload = true;
 
   }
-  onFileSelected = (event: any) => {
-    const fd = new FormData()
-    this.file = event.target?.files[0]
-    fd.append('photo',this.file)
-    this.userService.uploadImg(fd,this.id).subscribe((d) => {
-      console.log(d)
-    })
+  onFileSelected =  (event: any) => {
+    const fd = new FormData();
+    if (event.target?.files.length > 0) {
+        this.file = event.target.files[0];
+        fd.append('photo', this.file);
+         this.userService.uploadImg(fd, this.id).subscribe((d) => {
+            console.log(d);
+        });
+    } else {
+     console.log(" Handle the case where no file is selected")
+    }
+}
 
-  }
 
   handleUpdate(form: any) {
 

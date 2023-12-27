@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         const userData = JSON.stringify(res.user); // Convert to JSON string
         localStorage.setItem('user', userData);
 
-        this.router.navigate(['admin/dashbord/']);
+        this.router.navigate(['admin/recipe']);
       }
     });
   };

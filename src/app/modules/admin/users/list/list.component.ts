@@ -23,7 +23,7 @@ import { UserService } from 'src/app/shared/services/user.service';
   ]
 })
 export class ListComponent {
-  displayedColumns: string[] = ['photo', 'name', 'email','city','country', 'actions'];
+  displayedColumns: string[] = ['id','photo', 'name', 'email','city','country', 'actions'];
   filterList: string[] = ['city', 'country'];
 
   deleteMessage = ""

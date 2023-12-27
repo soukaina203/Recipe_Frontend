@@ -1,1 +1,112 @@
-<p>header works!</p>
+<nav class="bg-slate-400 z-20 absolute top-0 left-0 w-full md:h-[3.5rem] ">
+  <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8 ">
+
+    <div class="relative flex items-center justify-between h-16">
+      <div class="absolute inset-y-0 right-[-1rem] flex items-center lg:hidden z-30">
+        <!-- Mobile menu button -->
+        <button type="button" class="static p-2 mr-4 rounded-md lg:hidden focus:outline-none focus:ring-2 focus:ring-inset " aria-controls="mobile-menu" aria-expanded="false">
+          <!-- SVG Icons -->
+          <ng-container *ngIf="!isOpen">
+            <svg class="block h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true" (click)="Menu('open')">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </ng-container>
+          <ng-container *ngIf="isOpen">
+            <svg class="block w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true" (click)="Menu('close')">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </ng-container>
+        </button>
+      </div>
+
+
+  <button mat-button (click)="snav.toggle()" routerLinkActive="active" class="absolute top-[-8px] left-1 bg-indigo-700">
+    <mat-icon style="font-size: x-large;">menu</mat-icon>
+  </button>
+
+  <h1 class="text-2xl font-semibold underline bg-gradient-to-r from-black via-gray-500
+  to-gray-400 text-transparent bg-clip-text relative top-[-6.2px] ml-1 ">
+  Recipes
+</h1>
+
+  <!--  -->
+  <mat-sidenav-container #sidenav class="" >
+    <mat-sidenav #snav   [fixedInViewport]="true" fixedTopGap="49.9" style="background-color: aqua; width: 20%;
+    margin-top: 3.8rem;">
+   <mat-nav-list class="list" style="width: 100%; padding: 0;">
+
+        <mat-accordion>
+          <mat-expansion-panel >
+
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon>dashboard</mat-icon>
+                Academie
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <!-- <mat-list-item *ngFor="let e of dashRoutes"  routerLinkActive="router-active"> -->
+              <mat-icon>dashboard</mat-icon>
+              <span>Hello</span>
+              <span >Any</span>
+              <mat-divider></mat-divider>
+            <!-- </mat-list-item> -->
+
+          </mat-expansion-panel>
+
+
+        </mat-accordion>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- <mat-sidenav-content>
+        <main style="margin-top: 50px;">
+        <div class="mb-5 ml-3 mr-3">
+          <router-outlet #o="outlet"></router-outlet>
+        </div>
+      </main>
+    </mat-sidenav-content> -->
+  </mat-sidenav-container>
+
+
+
+      <div class="hidden md:hidden lg:flex lg:justify-center w-[100%] ">
+        <div class="flex space-x-4 font-semibold ">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a href="#Home" class="underlineHover"> Recipes </a>
+          <a href="#About" class="underlineHover ">Users</a>
+          <a href="#Behind" class="underlineHover">Categories</a>
+          <a href="#Ranking" class="underlineHover">Ranking</a>
+        </div>
+      </div>
+
+
+<!-- DROPDOWN BUTTON -->
+  <h1> Connected User</h1>
+    </div>
+  </div>
+  <button>
+
+  </button>
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="relative lg:hidden  top-[-20px] md:top-[-28px] z-50  bg-white " id="mobile-menu">
+    <ng-container *ngIf="isOpen">
+      <div class="flex flex-col justify-center px-2 pt-2 pb-3 space-y-2 text-black animate-showUp">
+        <a href="#" class="px-4 py-3 text-lg font-semibold ">Recipes</a>
+        <a href="#" class="px-4 py-3 text-lg font-semibold ">Users</a>
+        <a href="#" class="px-4 py-3 text-lg font-semibold ">Categories</a>
+        <a href="#" class="px-4 py-3 text-lg font-semibold ">Ranking</a>
+        <div>
+
+
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+
+</nav>

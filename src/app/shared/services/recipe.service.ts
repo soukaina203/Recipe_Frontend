@@ -23,7 +23,7 @@ export class RecipeService {
       return this.http.patch(`${environment.urlApi}/${this.controller}/${id}`, data)
     }
 
-    SendData(Recipe: Recipe): Observable<any> {
+    SendData(Recipe: Recipe | object): Observable<any> {
       return this.http.post(`${environment.urlApi}/${this.controller}`, Recipe)
     }
 
@@ -31,11 +31,19 @@ export class RecipeService {
       return this.http.delete(`${environment.urlApi}/${this.controller}/${id}`)
     }
     uploadImg(img:FormData): Observable<any> {
-      return this.http.post<Recipe>(`http://127.0.0.1:8000/api/Recipes/img`,img).pipe(
+      return this.http.post(`http://127.0.0.1:8000/api/Recipes/img`,img).pipe(
         catchError((e) => throwError(()=>{e}))
       );
     }
+    FilteredRecipes():Observable<any> {
+      return this.http.get(`http://127.0.0.1:8000/api/Recipes/FilteredRecipes`).pipe(
+        catchError((e) => throwError(()=>{e}))
+      );    }
 
+    SearchRecipe(title:string):Observable<any> {
+      return this.http.get(`${environment.urlApi}/${this.controller}/search/${title}`)
+
+    }
 
 
 

@@ -5,5 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './main.component.html',
 })
 export class MainComponent {
+  ngOnInit(){
 
+    console.log("I am main component")
+  }
 }

@@ -1,6 +1,50 @@
-<div class="flex gap-3">
+<mat-toolbar >
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="text-4xl font-semibold text-transparent underline bg-gradient-to-r from-black via-gray-500 to-gray-400 bg-clip-text ">
+    Recipes
+  </h1>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-  <app-toolbar></app-toolbar>
-  <router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over"  style="width: 15rem;">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>dashboard</mat-icon>
+        <h4 class="text-[20px]">
+          Academie
+        </h4>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
 
-</div>
+      <ng-container *ngFor="let e of dashRoutes">
+
+        <div
+          className="flex-col  items-centerhidden sm:flex border-r p-3  border-zinc-700   md:items-start fixed">
+          <a  [href]="e.route" routerLinkActive="router-active"
+            class="flex flex-row items-center p-2 space-x-1 duration-200 rounded-full hover:bg-white/10">
+            <mat-icon style="font-size: large; margin-left: 10px;">{{e.icon}}</mat-icon>
+           <h4 class="text-[20px] font-bold"> {{e.name}} </h4>
+          </a>
+          <hr>
+        </div>
+
+
+      </ng-container>
+
+    </mat-expansion-panel>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="h-screen bg-white1" >
+      <router-outlet>
+
+      </router-outlet>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

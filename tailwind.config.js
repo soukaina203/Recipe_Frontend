@@ -14,23 +14,31 @@ require('@tailwindcss/forms'),
           'lg': '1024px', // Large screens
           'xl': '1280px', // Extra-large screens
         },
+        colors: {
+          white1: '#EEEFF1',
+          btn: '#5b7c99',
+          btn1: "#4d6885",
+          btn2: '#3e5a73',
+
+        }
       },
 
 
-      colors: {
-        black: '#000000',
-        white: '#FFFFFF',
-        whiteBg: '#EEEFF1',
-        red: '#FF0000',
-        pink: '#E91E63',
-        purple: '#9C27B0',
-        indigo: '#3F51B5',
-        gray: '#9E9E9E',
-        grayWhite: '#B0B0B0',
-        blue: '#3B82F6',
-        transparent: '#00000000'
+      // colors: {
+      //   black: '#000000',
+      //   white: '#FFFFFF',
+      //   whiteBg: '#EEEFF1',
+      //   red: '#FF0000',
+      //   pink: '#E91E63',
+      //   purple: '#9C27B0',
+      //   indigo: '#3F51B5',
+      //   gray: '#9E9E9E',
+      //   grayWhite: '#B0B0B0',
+      //   blue: '#3B82F6',
+      //   transparent: '#00000000'
 
-      }, fontWeight: {
+      // }
+       fontWeight: {
         base: '16px',
         sm: '14px',
         lg: '18px',

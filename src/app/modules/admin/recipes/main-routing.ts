@@ -7,11 +7,17 @@ import { ListComponent } from './list/list.component';
 /*{imports}*/
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full'},
-  { path: '', component:ListComponent },
-  { path: 'create', component:CreateComponent },
-  { path: ':id', component:UpdateRecipeComponent },
-];
+  { path: '', component: MainComponent,
+  children: [
+    { path: '', redirectTo: 'all', pathMatch: 'full' },
+    { path: 'all', component: ListComponent },
+    { path: 'create', component: CreateComponent },
+    { path: ':id', component: UpdateRecipeComponent },
+
+  ]
+  }, // Optional, for redirecting to a specific child route
+
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

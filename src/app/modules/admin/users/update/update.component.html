@@ -31,7 +31,7 @@
       <div class="col-12">
         <label for="inputAddress" class="form-label">Name</label>
         <input type="text" name="name" #name="ngModel" ngModel [(ngModel)]="userDetail.name" minlength="3"
-          class="form-control" id="inputAddress">
+          class="form-control" id="inputName">
 
         <span class="p-2 text-red" *ngIf="name.errors?.['minlength'] && name.touched">
           This field should be more than 3 characters

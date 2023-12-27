@@ -8,4 +8,5 @@ export class Recipe {
   photo: string;
   category_id: number;
   user_id: number;
+  cooking_time:number
 }

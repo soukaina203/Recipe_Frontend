@@ -23,6 +23,12 @@ body{
 .underlineHover:hover::after {
   transform: scaleX(1);
 }
+.mat-expansion-panel {
+  border-radius: 0 !important;
+}
 
+.mat-expansion-panel-body {
+  padding: 0 !important;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

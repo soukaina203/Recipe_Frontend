@@ -20,7 +20,6 @@ import { RankingComponent } from './modules/landingPage/ranking/ranking.componen
 import { ContactComponent } from './modules/landingPage/contact/contact.component';
 import { FooterComponent } from './modules/landingPage/footer/footer.component';
 import { MainComponent } from './modules/landingPage/main/main.component';
-import { ToolbarComponent } from './modules/admin/toolbar/toolbar.component';
 import { ListComponent } from './modules/admin/recipes/list/list.component';
 import { UpdateRecipeComponent } from './modules/admin/recipes/update-recipe/update-recipe.component';
 import { DashbordComponent } from './modules/admin/dashbord/dashbord.component';
@@ -28,11 +27,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { MainRoutingModule } from './modules/admin/recipes/main-routing';
 @NgModule({
   imports: [
     CoreModule,
     BrowserModule,
     AppRoutingModule,
+    MainRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

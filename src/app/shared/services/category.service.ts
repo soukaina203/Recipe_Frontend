@@ -10,40 +10,45 @@ import { Observable, catchError, throwError } from 'rxjs';
 export class CategoryService {
 
   constructor(private http: HttpClient) { }
-  private apiCategories = environment.apiCategories;
+
+
+  readonly controller = 'Categories'
 
   getAll(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.apiCategories).pipe(
+    return this.http.get<Category[]>(`${environment.urlApi}/${this.controller}`).pipe(
       catchError((error) => throwError(()=>{'An error occurred while getting all items from the Api '}))
+      );
+    }
+    getItem(id:string): Observable<Category> {
+      return this.http.get<Category>(`${environment.urlApi}/${this.controller}/${id}`).pipe(
+        catchError((error) => throwError(()=>{'An error occurred while getting an item from the Api'}))
+      );
+    }
+
+
+    updateItem(id:string | null,Category:Category): Observable<any> {
+      return this.http.patch<Category>(`${environment.urlApi}/${this.controller}/${id}`,Category).pipe(
+        catchError((error) => throwError(()=>{'An error occurred while updating an item from the Api'}))
       );
     }
 
     createItem(Category:Category): Observable<any> {
-      return this.http.post<Category>(this.apiCategories,Category).pipe(
+      return this.http.post<Category>(`${environment.urlApi}/${this.controller}`,Category).pipe(
         catchError((error) => throwError(()=>{'An error occurred while creating an item from an Api'}))
       );
     }
 
 
-  getItem(id:number): Observable<Category> {
-    return this.http.get<Category>(`${this.apiCategories}/${id}`).pipe(
-      catchError((error) => throwError(()=>{'An error occurred while getting an item from the Api'}))
-    );
-  }
 
 
-  updateItem(Category:Category,id:number): Observable<any> {
-    return this.http.post<Category>(`${this.apiCategories}/${id}`,Category).pipe(
-      catchError((error) => throwError(()=>{'An error occurred while updating an item from the Api'}))
-    );
-  }
 
 
   deleteItem(id:number): Observable<any> {
-    return this.http.delete<Category>(`${this.apiCategories}/${id}`).pipe(
+    return this.http.delete<Category>(`${environment.urlApi}/${this.controller}/${id}`).pipe(
       catchError((error) => throwError(()=>{'An error occurred while deleting an item from the Api'}))
     );
   }
+
 
 
 }

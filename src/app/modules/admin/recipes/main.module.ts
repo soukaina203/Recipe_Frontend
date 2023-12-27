@@ -14,6 +14,8 @@ import { MainComponent } from './main.component';
 import { MainRoutingModule } from './main-routing';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatModule } from 'src/mat.module';
+import { HeaderComponent } from '../header/header.component';
 
 @NgModule({
   declarations: [
@@ -21,18 +23,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ListComponent,
     UpdateRecipeComponent,
     MainComponent,
+    HeaderComponent
+
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatIconModule,
     MainRoutingModule,
-    MatStepperModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
+    MatModule,
 
     MatButtonModule,
   ],

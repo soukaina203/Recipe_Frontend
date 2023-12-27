@@ -31,7 +31,7 @@
                 <div class="mb-4">
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-600" >Password</label>
                     <input type="password" id="password" autocomplete  name="password" #password="ngModel" ngModel
-                   class="w-full px-3 py-2 border-2 rounded" minlength="8" required>
+                   class="w-full px-3 py-2 border-2 rounded" minlength="3" required>
                     <span class="p-2 text-red-500 " *ngIf="password.errors?.['required']&&password.touched">
                       This field is required
                     </span>

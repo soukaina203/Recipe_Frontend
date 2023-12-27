@@ -1,8 +1,8 @@
 <div class="flex items-center justify-center w-full h-full bg-gray">
 
-  <form [formGroup]="RecipeForm" class="w-[60%] ml-auto mr-auto bg-indigo">
-    <mat-horizontal-stepper [linear]="true">
-      <mat-step>
+  <mat-horizontal-stepper [linear]="false">
+    <mat-step [stepControl]="RecipeForm1">
+      <form [formGroup]="RecipeForm1" class="w-full ml-auto mr-auto ">
         <ng-container *ngIf="!isSended">
           <div class=" w-full h-[13rem] rounded-lg ml-auto mr-auto">
 
@@ -15,51 +15,133 @@
         <ng-container *ngIf="isSended">
 
 
-          <img [src]="'http://127.0.0.1:8000/images/'+image" alt="" class=" w-full h-[13rem] rounded-lg ml-auto mr-auto
+          <img [src]="'http://127.0.0.1:8000/images/recipes/'+image" alt="" class=" w-full h-[13rem] rounded-lg ml-auto mr-auto
                   overflow-hidden object-cover" (click)="uploadSection()">
 
         </ng-container>
- <ng-container *ngIf="isUpload">
-<label for=""> Upload an image</label>
-   <input type="file" class="form-control " [accept]="'.pdf,.doc,.docx,.jpg,.png,.jpge'" type="file"
-    id="inputPhoto"  formControlName="photo" (change)="onFileSelected($event)" />
-  </ng-container>
+        <ng-container *ngIf="isUpload">
+          <label for=""> Upload an image</label>
+          <input type="file" class="form-control" [accept]="'.pdf,.doc,.docx,.jpg,.png,.jpge'" type="file"
+            id="inputPhoto" (change)="onFileSelected($event)" />
+
+        </ng-container>
 
 
-        <mat-form-field appearance="fill" class="col-md-12">
+        <mat-form-field appearance="fill" class="mt-6 col-md-12">
           <mat-label>Title</mat-label>
           <input matInput formControlName="title">
-          <mat-error *ngIf="RecipeForm.get('title')?.errors?.['minlength']">
+          <mat-error *ngIf="RecipeForm1.get('title')?.errors?.['minlength']">
             The title should contain more than 3 characters.
           </mat-error>
-          <mat-error *ngIf="RecipeForm.get('title')?.hasError('required') &&
-        RecipeForm.get('title')?.touched">
+          <mat-error *ngIf="RecipeForm1.get('title')?.hasError('required') &&
+        RecipeForm1.get('title')?.touched">
             the title field is required
           </mat-error>
         </mat-form-field>
 
 
-          <mat-form-field appearance="fill" class=" col-md-12" >
-            <mat-label>Description</mat-label>
-            <textarea matInput formControlName="description" minlength="80" maxlength="500"></textarea>
-            <mat-error *ngIf="RecipeForm.get('title')?.errors?.['minlength']">
-              The Discription should contain more than 80 characters
-            </mat-error>
-            <mat-error *ngIf="RecipeForm.get('title')?.errors?.['maxLength']">
-              The Discription should contain less than 500 characters
-            </mat-error>
+        <mat-form-field appearance="fill" class=" col-md-12">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" minlength="10" maxlength="500"></textarea>
+          <mat-error *ngIf="RecipeForm1.get('description')?.errors?.['minlength']">
+            The Discription should contain more than 10 characters
+          </mat-error>
+          <mat-error *ngIf="RecipeForm1.get('description')?.errors?.['maxLength']">
+            The Discription should contain less than 500 characters
+          </mat-error>
 
-            <mat-error *ngIf="RecipeForm.get('title')?.hasError('required') &&
-            RecipeForm.get('title')?.touched">
-              This Field is required
-            </mat-error>
-          </mat-form-field>
-
-
+          <mat-error *ngIf="RecipeForm1.get('description')?.hasError('required') &&
+            RecipeForm1.get('description')?.touched">
+            This Field is required
+          </mat-error>
+        </mat-form-field>
 
 
-      </mat-step>
-    </mat-horizontal-stepper>
-  </form>
+        <mat-form-field appearance="fill" class=" col-md-12">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category_id">
+            <mat-option (click)="showAutreInput('f')" *ngFor="let category of Categories " [value]="category.id">
+              {{ category.name }} </mat-option>
+            <mat-option (click)="showAutreInput('t')">
+              Autre
+            </mat-option>
+          </mat-select>
+
+
+
+        </mat-form-field>
+
+        <mat-form-field *ngIf="IsShowAutreInput" appearance="fill" class=" col-md-12">
+          <mat-label>Category Name</mat-label>
+          <input matInput formControlName="categoryName">
+        </mat-form-field>
+        <button mat-button matStepperNext>Next</button>
+
+
+
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="RecipeForm2">
+      <form [formGroup]="RecipeForm2" class="w-full ml-auto mr-auto ">
+
+        <mat-form-field appearance="fill" class=" col-md-12">
+          <mat-label>Type</mat-label>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let type of Types " [value]="type">
+              {{ type }} </mat-option>
+
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class=" col-md-12">
+          <mat-label>Instructions</mat-label>
+          <textarea matInput formControlName="instructions" minlength="80" maxlength="2000"></textarea>
+          <mat-error *ngIf="RecipeForm2.get('instructions')?.errors?.['minlength']">
+            The Discription should contain more than 80 characters
+          </mat-error>
+
+
+          <mat-error *ngIf="RecipeForm2.get('instructions')?.hasError('required') &&
+      RecipeForm2.get('instructions')?.touched">
+            This Field is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class=" col-md-12">
+          <mat-label>cooking_details <span>(time , used tools)</span></mat-label>
+          <textarea matInput formControlName="cooking_details" minlength="20"></textarea>
+          <mat-error *ngIf="RecipeForm2.get('cooking_details')?.errors?.['minlength']">
+            The Discription should contain more than 20 characters
+          </mat-error>
+
+          <mat-error *ngIf="RecipeForm2.get('cooking_details')?.hasError('required') &&
+      RecipeForm2.get('cooking_details')?.touched">
+            This Field is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class=" col-md-12">
+          <mat-label>cooking_time <span>(used tools)</span></mat-label>
+          <input matInput type="number" formControlName="cooking_time" />
+
+
+          <mat-error *ngIf="RecipeForm2.get('cooking_time')?.hasError('required') &&
+      RecipeForm2.get('cooking_time')?.touched">
+            This Field is required
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-button matStepperPrevious>Back</button>
+
+        <button mat-button matStepperNext (click)="submit(RecipeForm1.value,RecipeForm2.value)">Save</button>
+
+      </form>
+    </mat-step>
+
+
+
+
+
+  </mat-horizontal-stepper>
 
 </div>
